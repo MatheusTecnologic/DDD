@@ -1,0 +1,35 @@
+# Função para converter dias, horas, minutos e segundos em total de segundos
+def tempo_para_segundos(dia, hora, minuto, segundo):
+    return dia * 86400 + hora * 3600 + minuto * 60 + segundo
+
+# Função para converter segundos para dias, horas, minutos e segundos
+def segundos_para_tempo(segundos):
+    dias = segundos // 86400
+    segundos %= 86400
+    horas = segundos // 3600
+    segundos %= 3600
+    minutos = segundos // 60
+    segundos %= 60
+    return dias, horas, minutos, segundos
+
+# Leitura dos dados de entrada
+dia_inicio = int(input().split()[1])
+hora_inicio, minuto_inicio, segundo_inicio = map(int, input().split(" : "))
+dia_fim = int(input().split()[1])
+hora_fim, minuto_fim, segundo_fim = map(int, input().split(" : "))
+
+# Convertendo o tempo de início e fim para segundos
+inicio_segundos = tempo_para_segundos(dia_inicio, hora_inicio, minuto_inicio, segundo_inicio)
+fim_segundos = tempo_para_segundos(dia_fim, hora_fim, minuto_fim, segundo_fim)
+
+# Calculando a diferença de tempo em segundos
+diferenca_segundos = fim_segundos - inicio_segundos
+
+# Convertendo a diferença de segundos para dias, horas, minutos e segundos
+dias, horas, minutos, segundos = segundos_para_tempo(diferenca_segundos)
+
+# Exibindo o resultado
+print(f"{dias} dia(s)")
+print(f"{horas} hora(s)")
+print(f"{minutos} minuto(s)")
+print(f"{segundos} segundo(s)")
