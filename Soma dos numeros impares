@@ -1,0 +1,18 @@
+# Leia os dois valores inteiros
+X = int(input())
+Y = int(input())
+
+# Encontre o menor e o maior dos valores
+menor = min(X, Y)
+maior = max(X, Y)
+
+# Inicialize a soma dos ímpares
+soma_impares = 0
+
+# Percorra os números entre menor e maior, excluindo os próprios
+for num in range(menor + 1, maior):
+    if num % 2 != 0:  # Verifique se o número é ímpar
+        soma_impares += num
+
+# Exiba o resultado
+print(soma_impares)
